@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2018_11_20_225816) do
 
-  create_table "comments", force: :cascade do |t|
-    t.text "reply"
-    t.integer "meeting_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["meeting_id"], name: "index_comments_on_meeting_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -50,16 +40,11 @@ ActiveRecord::Schema.define(version: 2018_11_20_225816) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "username"
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "stripe_id"
-    t.string "card_brand"
-    t.string "card_exp_month"
-    t.string "card_exp_year"
-    t.string "card_last4"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
